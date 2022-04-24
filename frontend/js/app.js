@@ -2,13 +2,13 @@ let accounts;
 
 // METAMASK CONNECTION
 window.addEventListener("DOMContentLoaded", async () => {
-  const welcomeH1 = document.getElementById("welcomeH1");
-  const welcomeH2 = document.getElementById("welcomeH2");
-  const welcomeP = document.getElementById("welcomeP");
 
-  welcomeH1.innerText = welcome_h1;
-  welcomeH2.innerText = welcome_h2;
-  welcomeP.innerHTML = welcome_p;
+  const opensea = document.querySelectorAll(".opensea");
+  const discord = document.querySelectorAll(".discord");
+  const twitter = document.querySelectorAll(".twitter");
+  const instagram = document.querySelectorAll(".instagram");
+
+  updateSocialMediaLinks(opensea, discord, twitter, instagram);
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
@@ -24,19 +24,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  const splide = new Splide(".splide", {
-    type: "loop",
-    arrows: false,
-    perMove: 3,
-    pagination: false,
-    autoplay: true,
-    direction: 'ttb',
-    height: "calc(100vh - 90px)",
-    width: '30vw',
-    autoHeight: true,
-  });
-  splide.mount();
-
   updateConnectStatus();
   if (MetaMaskOnboarding.isMetaMaskInstalled()) {
     window.ethereum.on("accountsChanged", (newAccounts) => {
@@ -45,6 +32,21 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+
+const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
+  opensea.forEach((link) => {
+    link.href = socialMediaLinks.opensea;
+  });
+  discord.forEach((link) => {
+    link.href = socialMediaLinks.discord;
+  });
+  twitter.forEach((link) => {
+    link.href = socialMediaLinks.twitter;
+  });
+  instagram.forEach((link) => {
+    link.href = socialMediaLinks.instagram;
+  });
+}
 
 const updateConnectStatus = async () => {
   const onboarding = new MetaMaskOnboarding();
