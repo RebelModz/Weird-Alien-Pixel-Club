@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // updateConnectStatus();
+  updateConnectStatus();
   // if (MetaMaskOnboarding.isMetaMaskInstalled()) {
   //   window.ethereum.on("accountsChanged", (newAccounts) => {
   //     accounts = newAccounts;
