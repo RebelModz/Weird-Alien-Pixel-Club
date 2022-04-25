@@ -82,7 +82,7 @@ const updateConnectStatus = async () => {
         .then(function (accts) {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+          // spinner.classList.remove('hidden');
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
