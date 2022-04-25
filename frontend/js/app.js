@@ -17,12 +17,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     window.web3 = new Web3(window.web3.currentProvider);
   }
 
-  // if (window.web3) {
-  //   // Check if User is already connected by retrieving the accounts
-  //   await window.web3.eth.getAccounts().then(async (addr) => {
-  //     accounts = addr;
-  //   });
-  // }
+  if (window.web3) {
+    // Check if User is already connected by retrieving the accounts
+    await window.web3.eth.getAccounts().then(async (addr) => {
+      accounts = addr;
+    });
+  }
 
   updateConnectStatus();
   if (MetaMaskOnboarding.isMetaMaskInstalled()) {
@@ -160,7 +160,7 @@ async function loadInfo() {
   const subHeading = document.getElementById("subHeading");
   const mainText = document.getElementById("mainText");
   const actionButton = document.getElementById("actionButton");
-  const mintContainer = document.getElementById("mint-container");
+  const mintContainer = document.getElementById("mintContainer");
   const mintButton = document.getElementById("mintButton");
   const spinner = document.getElementById("spinner");
 
