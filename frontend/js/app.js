@@ -109,9 +109,7 @@ async function checkChain() {
   } else if(chain === 'polygon') {
     chainId = 137;
   }
-  if (window.ethereum.networkVersion !== chainId) {
-    console.log(window.ethereum.networkVersion);
-    console.log(chainId);
+  if (window.ethereum.networkVersion != chainId) {
     document.getElementById("my-modal").checked = true;
     document.getElementById("model-text").innerText = `Switch metamask network to ${chain} ?`;
     const changeChainBtn = document.getElementById("change-chain");
