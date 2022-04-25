@@ -102,7 +102,7 @@ async function checkChain() {
   }
   if (window.ethereum.networkVersion != chainId) {
     document.getElementById("my-modal").checked = true;
-    document.getElementById("model-text").innerText = `Switch metamask network to ${chain}?`;
+    document.getElementById("model-text").innerText = `Please switch metamask network to ${chain} to continue.`;
     const changeChainBtn = document.getElementById("change-chain");
     changeChainBtn.addEventListener("click", () => switchChain(chainId));
   }
