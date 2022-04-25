@@ -112,50 +112,51 @@ async function checkChain() {
   if (window.ethereum.networkVersion !== chainId) {
     document.getElementById("my-modal").checked = true;
     const changeChainBtn = document.getElementById("change-chain");
-    changeChainBtn.addEventListener("click", () => {
+    changeChainBtn.addEventListener("click", () => switchChain(chainId));
+  }
+}
 
-    try {
-      await window.ethereum.request({
-        method: 'wallet_switchEthereumChain',
-        params: [{ chainId: web3.utils.toHex(chainId) }],
-      });
-      updateConnectStatus();
-    } catch (err) {
-        // This error code indicates that the chain has not been added to MetaMask.
-      if (err.code === 4902) {
-        try {
-          if(chain === 'rinkeby') {
-            await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
-              params: [
-                {
-                  chainName: 'Rinkeby Test Network',
-                  chainId: web3.utils.toHex(chainId),
-                  nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
-                  rpcUrls: ['https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
-                },
-              ],
-            });
-          } else if(chain === 'polygon') {
-            await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
-              params: [
-                {
-                  chainName: 'Polygon Mainnet',
-                  chainId: web3.utils.toHex(chainId),
-                  nativeCurrency: { name: 'MATIC', decimals: 18, symbol: 'MATIC' },
-                  rpcUrls: ['https://polygon-rpc.com/'],
-                },
-              ],
-            });
-          }
-          updateConnectStatus();
-        } catch (err) {
-          console.log(err);
+async function switchChain(chainId) {
+  try {
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: web3.utils.toHex(chainId) }],
+    });
+    updateConnectStatus();
+  } catch (err) {
+      // This error code indicates that the chain has not been added to MetaMask.
+    if (err.code === 4902) {
+      try {
+        if(chain === 'rinkeby') {
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainName: 'Rinkeby Test Network',
+                chainId: web3.utils.toHex(chainId),
+                nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
+                rpcUrls: ['https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+              },
+            ],
+          });
+        } else if(chain === 'polygon') {
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainName: 'Polygon Mainnet',
+                chainId: web3.utils.toHex(chainId),
+                nativeCurrency: { name: 'MATIC', decimals: 18, symbol: 'MATIC' },
+                rpcUrls: ['https://polygon-rpc.com/'],
+              },
+            ],
+          });
         }
+        updateConnectStatus();
+      } catch (err) {
+        console.log(err);
       }
     }
-    });
   }
 }
 
