@@ -24,13 +24,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // updateConnectStatus();
-  // if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-  //   window.ethereum.on("accountsChanged", (newAccounts) => {
-  //     accounts = newAccounts;
-  //     updateConnectStatus();
-  //   });
-  // }
+  updateConnectStatus();
+  if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+    window.ethereum.on("accountsChanged", (newAccounts) => {
+      accounts = newAccounts;
+      updateConnectStatus();
+    });
+  }
 });
 
 const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
@@ -102,7 +102,7 @@ async function checkChain() {
   }
   if (window.ethereum.networkVersion != chainId) {
     document.getElementById("my-modal").checked = true;
-    document.getElementById("model-text").innerText = `Switch metamask network to ${chain} ?`;
+    document.getElementById("model-text").innerText = `Switch metamask network to ${chain}?`;
     const changeChainBtn = document.getElementById("change-chain");
     changeChainBtn.addEventListener("click", () => switchChain(chainId));
   }
