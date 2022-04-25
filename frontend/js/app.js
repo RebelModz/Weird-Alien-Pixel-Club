@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  updateConnectStatus();
+  // updateConnectStatus();
   // if (MetaMaskOnboarding.isMetaMaskInstalled()) {
   //   window.ethereum.on("accountsChanged", (newAccounts) => {
   //     accounts = newAccounts;
@@ -110,7 +110,8 @@ async function checkChain() {
     chainId = 137;
   }
   if (window.ethereum.networkVersion !== chainId) {
-    console.log(window.ethereum.networkVersion !== chainId);
+    console.log(window.ethereum.networkVersion);
+    console.log(chainId);
     document.getElementById("my-modal").checked = true;
     document.getElementById("model-text").innerText = `Switch metamask network to ${chain} ?`;
     const changeChainBtn = document.getElementById("change-chain");
