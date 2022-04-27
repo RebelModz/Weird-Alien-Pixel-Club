@@ -154,38 +154,12 @@
             </div>
         </section>
 
-        <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span class="countdown font-mono text-5xl">
-                <span style="--days:15;"></span>
-              </span>
-              days
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span class="countdown font-mono text-5xl">
-                <span style="--hours:10;"></span>
-              </span>
-              hours
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span class="countdown font-mono text-5xl">
-                <span style="--minutes:24;"></span>
-              </span>
-              min
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span class="countdown font-mono text-5xl">
-                <span style="--seconds:25;"></span>
-              </span>
-              sec
-            </div>
-          </div>
-
         <!-- The button to open main modal -->
         <label for="my-modal-2" class="btn modal-button">open modal</label>
         <input type="checkbox" id="my-modal-2" class="modal-toggle">
         <div class="modal items-center justify-center">
-            <div class="modal-box text-center">
+            <div class="modal-box text-center relative">
+                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                 <div class="grid grid-flow-col gap-5 text-center auto-cols-max items-center justify-center">
                     <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                         <span class="countdown font-mono text-5xl">
