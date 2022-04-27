@@ -51,6 +51,7 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
 const updateConnectStatus = async () => {
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
+  const heroBtn = document.getElementById("hero-btn");
   const spinner = document.getElementById("spinner");
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
@@ -66,6 +67,7 @@ const updateConnectStatus = async () => {
     window.address = accounts[0];
     onboardButton.disabled = true;
     onboarding.stopOnboarding();
+    heroBtn.classList.remove("hidden");
     // SHOW SPINNER
     spinner.classList.remove('hidden');
     window.contract = new web3.eth.Contract(abi, contractAddress);
@@ -81,6 +83,7 @@ const updateConnectStatus = async () => {
         })
         .then(function (accts) {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
+          heroBtn.classList.remove("hidden");
           // SHOW SPINNER
           spinner.classList.remove('hidden');
           onboardButton.disabled = true;
