@@ -101,7 +101,7 @@ const updateConnectStatus = async () => {
   }
 };
 
-async function checkChain() {
+function checkChain() {
   let chainId = 0;
   if(chain === 'rinkeby') {
     chainId = 4;
