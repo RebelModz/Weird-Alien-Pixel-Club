@@ -53,6 +53,11 @@ const updateConnectStatus = async () => {
   const onboardButton = document.getElementById("connectWallet");
   const heroBtn = document.getElementById("hero-btn");
   const spinner = document.getElementById("spinner");
+
+  heroBtn.addEventListener("click", () => {
+    document.getElementById("my-modal-3").checked = true;
+  });
+
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
     onboardButton.onclick = () => {
