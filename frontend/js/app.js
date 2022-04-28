@@ -35,6 +35,7 @@ window.addEventListener("load", async () => {
 });
 
 async function setTotalMinted() {
+  window.contract = new web3.eth.Contract(abi, contractAddress);
   const totalMinted = await contract.methods.totalSupply().call();
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
