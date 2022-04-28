@@ -70,6 +70,7 @@ const updateConnectStatus = async () => {
     onboardButton.disabled = true;
     onboarding.stopOnboarding();
     heroBtn.classList.remove("hidden");
+    heroBtn.click();
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
@@ -82,6 +83,7 @@ const updateConnectStatus = async () => {
         .then(function (accts) {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
           heroBtn.classList.remove("hidden");
+          heroBtn.click();
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
