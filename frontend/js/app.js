@@ -168,6 +168,7 @@ async function loadInfo() {
   const totalMinted = await contract.methods.totalSupply().call();
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
+  showMinted.classList.remove("hidden");
   showMinted.innerText = `${totalMinted}/${max_supply}`;
 
   const mainHeading = document.getElementById("mainHeading");
