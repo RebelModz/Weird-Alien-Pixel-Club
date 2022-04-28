@@ -90,7 +90,7 @@ const updateConnectStatus = async () => {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
           heroBtn.classList.remove("hidden");
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+          spinner.classList.add('hidden');
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
