@@ -58,11 +58,6 @@ const updateConnectStatus = async () => {
 
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
-  const heroBtn = document.getElementById("hero-btn");
-
-  heroBtn.addEventListener("click", () => {
-    document.getElementById("my-modal-3").checked = true;
-  });
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
@@ -76,8 +71,6 @@ const updateConnectStatus = async () => {
     window.address = accounts[0];
     onboardButton.disabled = true;
     onboarding.stopOnboarding();
-    heroBtn.classList.remove("hidden");
-    heroBtn.click();
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
@@ -89,8 +82,6 @@ const updateConnectStatus = async () => {
         })
         .then(function (accts) {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
-          heroBtn.classList.remove("hidden");
-          heroBtn.click();
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
@@ -165,10 +156,18 @@ async function loadInfo() {
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
 
+  document.getElementById("show").classList.remove("hidden");
+
+  const heroBtn = document.getElementById("hero-btn");
+
+  heroBtn.addEventListener("click", () => {
+    document.getElementById("my-modal-3").checked = true;
+  });
+
   const totalMinted = await contract.methods.totalSupply().call();
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
-  showMinted.classList.remove("hidden");
+  // showMinted.classList.remove("hidden");
   showMinted.innerText = `${totalMinted}/${max_supply}`;
 
   const mainHeading = document.getElementById("mainHeading");
