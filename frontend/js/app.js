@@ -52,7 +52,6 @@ const updateConnectStatus = async () => {
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
   const heroBtn = document.getElementById("hero-btn");
-  const spinner = document.getElementById("spinner");
 
   heroBtn.addEventListener("click", () => {
     document.getElementById("my-modal-3").checked = true;
@@ -64,8 +63,6 @@ const updateConnectStatus = async () => {
       onboardButton.innerText = "Connecting...";
       onboardButton.disabled = true;
       onboarding.startOnboarding();
-      // HIDE SPINNER
-      spinner.classList.add('hidden');
     };
   } else if (accounts && accounts.length > 0) {
     onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
@@ -73,14 +70,10 @@ const updateConnectStatus = async () => {
     onboardButton.disabled = true;
     onboarding.stopOnboarding();
     heroBtn.classList.remove("hidden");
-    // SHOW SPINNER
-    spinner.classList.add('hidden');
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
     onboardButton.innerText = "Connect MetaMask!";
-    // HIDE SPINNER
-    spinner.classList.add('hidden');
     onboardButton.onclick = async () => {
       await window.ethereum
         .request({
@@ -89,8 +82,6 @@ const updateConnectStatus = async () => {
         .then(function (accts) {
           onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
           heroBtn.classList.remove("hidden");
-          // SHOW SPINNER
-          spinner.classList.add('hidden');
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
@@ -170,7 +161,6 @@ async function loadInfo() {
   const actionButton = document.getElementById("actionButton");
   const mintContainer = document.getElementById("mintContainer");
   const mintButton = document.getElementById("mintButton");
-  const spinner = document.getElementById("spinner");
 
   let startTime = "";
   if (publicMintActive) {
@@ -219,8 +209,6 @@ async function loadInfo() {
   clockdiv.setAttribute("data-date", startTime);
   countdown();
 
-  // HIDE SPINNER
-  spinner.classList.add('hidden');
 
   // SHOW CARD
   setTimeout(() => {
@@ -308,8 +296,8 @@ function setTotalPrice() {
 async function mint() {
   const mintButton = document.getElementById("mintButton");
   mintButton.disabled = true;
-  const spinner = '<div class="dot-elastic"></div><span>Waiting for transaction...</span>';
-  mintButton.innerHTML = spinner;
+  // const spinner = '<div class="dot-elastic"></div><span>Waiting for transaction...</span>';
+  // mintButton.innerHTML = spinner;
 
   const amount = parseInt(document.getElementById("mintInput").value);
   const value = BigInt(info.deploymentConfig.mintPrice) * BigInt(amount);
