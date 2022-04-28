@@ -9,6 +9,7 @@ window.addEventListener("load", async () => {
   const instagram = document.querySelectorAll(".instagram");
 
   updateSocialMediaLinks(opensea, discord, twitter, instagram);
+  setTotalMinted();
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
@@ -32,6 +33,13 @@ window.addEventListener("load", async () => {
     });
   }
 });
+
+async function setTotalMinted() {
+  const totalMinted = await contract.methods.totalSupply().call();
+  const max_supply = info.deploymentConfig.maxSupply;
+  const showMinted = document.getElementById("total-minted");
+  showMinted.innerText = `${totalMinted}/${max_supply}`
+}
 
 const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
   opensea.forEach((link) => {
