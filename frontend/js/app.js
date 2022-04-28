@@ -168,7 +168,7 @@ async function loadInfo() {
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
   // showMinted.classList.remove("hidden");
-  showMinted.innerText = `${totalMinted}/${max_supply}`;
+  showMinted.innerText = `${totalMinted}/${max_supply} minted`;
 
   const mainHeading = document.getElementById("mainHeading");
   const subHeading = document.getElementById("subHeading");
