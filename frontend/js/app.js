@@ -38,7 +38,7 @@ async function setTotalMinted() {
   const totalMinted = await contract.methods.totalSupply().call();
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
-  showMinted.innerText = `${totalMinted}/${max_supply}`
+  showMinted.innerText = `${totalMinted}/${max_supply}`;
 }
 
 const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
