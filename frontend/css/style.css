@@ -10,3 +10,35 @@ body,
     width: 100%;
     height: 100%;
 }
+
+.loader {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+@keyframes load4 {
+    50% {
+        transform: rotatez(180deg);
+        border-width: 30px;
+    }
+
+    100% {
+        transform: rotatez(360deg);
+    }
+}
+
+.loader4::before {
+    content: "";
+    color: white;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border-radius: 50%;
+    border: 15px ridge lime;
+    border-color: lime transparent;
+    animation: load4 1s infinite;
+}
