@@ -35,11 +35,8 @@ window.addEventListener("load", async () => {
 });
 
 async function setTotalMinted() {
-  window.contract = new web3.eth.Contract(abi, contractAddress);
-  const totalMinted = await contract.methods.totalSupply().call();
-  const max_supply = info.deploymentConfig.maxSupply;
-  const showMinted = document.getElementById("total-minted");
-  showMinted.innerText = `${totalMinted}/${max_supply}`;
+
+  
 }
 
 const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
@@ -58,6 +55,7 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
 }
 
 const updateConnectStatus = async () => {
+
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
   const heroBtn = document.getElementById("hero-btn");
@@ -166,8 +164,12 @@ async function loadInfo() {
   window.info = await window.contract.methods.getInfo().call();
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
-  const totalSupply1 = await contract.methods.totalSupply().call();
-  console.log(totalSupply1);
+
+  const totalMinted = await contract.methods.totalSupply().call();
+  const max_supply = info.deploymentConfig.maxSupply;
+  const showMinted = document.getElementById("total-minted");
+  showMinted.innerText = `${totalMinted}/${max_supply}`;
+
   const mainHeading = document.getElementById("mainHeading");
   const subHeading = document.getElementById("subHeading");
   const mainText = document.getElementById("mainText");
