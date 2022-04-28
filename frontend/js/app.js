@@ -9,7 +9,6 @@ window.addEventListener("load", async () => {
   const instagram = document.querySelectorAll(".instagram");
 
   updateSocialMediaLinks(opensea, discord, twitter, instagram);
-  setTotalMinted();
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
@@ -33,11 +32,6 @@ window.addEventListener("load", async () => {
     });
   }
 });
-
-async function setTotalMinted() {
-
-  
-}
 
 const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
   opensea.forEach((link) => {
