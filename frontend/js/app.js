@@ -1,7 +1,7 @@
 let accounts;
 
 // METAMASK CONNECTION
-window.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
 
   const opensea = document.querySelectorAll(".opensea");
   const discord = document.querySelectorAll(".discord");
