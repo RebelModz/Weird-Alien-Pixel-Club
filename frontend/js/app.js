@@ -74,7 +74,7 @@ const updateConnectStatus = async () => {
     onboarding.stopOnboarding();
     heroBtn.classList.remove("hidden");
     // SHOW SPINNER
-    spinner.classList.remove('hidden');
+    spinner.classList.add('hidden');
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
