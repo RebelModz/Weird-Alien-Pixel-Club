@@ -304,8 +304,7 @@ function setTotalPrice() {
 async function mint() {
   const mintButton = document.getElementById("mintButton");
   mintButton.disabled = true;
-  // const spinner = '<div class="dot-elastic"></div><span>Waiting for transaction...</span>';
-  // mintButton.innerHTML = spinner;
+  mintButton.classList.add("loading");
 
   const amount = parseInt(document.getElementById("mintInput").value);
   const value = BigInt(info.deploymentConfig.mintPrice) * BigInt(amount);
@@ -331,16 +330,16 @@ async function mint() {
         console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
-        mainText.innerText = mint_failed;
-        mintButton.innerText = button_public_mint;
+        mainText.innerText = "Minting failed. 😢 Please try again.";
+        mintButton.innerText = "Mint Your NFT";
         mintButton.disabled = false;
 
         console.log("Failed to mint!");
       }
     } catch(e) {
       const mainText = document.getElementById("mainText");
-      mainText.innerText = mint_failed;
-      mintButton.innerText = button_public_mint;
+      mainText.innerText = "Minting failed. 😢 Please try again.";
+      mintButton.innerText = "Mint Your NFT";
       mintButton.disabled = false;
 
       console.log(e);
@@ -368,16 +367,16 @@ async function mint() {
         console.log("Minuted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
-        mainText.innerText = mint_failed;
-        mintButton.innerText = button_presale_mint_whitelisted;
+        mainText.innerText = "Minting failed. 😢 Please try again.";
+        mintButton.innerText = "Mint Your Special NFT";
         mintButton.disabled = false;
 
         console.log("Failed to mint!");
       }
     } catch(e) {
       const mainText = document.getElementById("mainText");
-      mainText.innerText = mint_failed;
-      mintButton.innerText = button_presale_mint_whitelisted;
+      mainText.innerText = "Minting failed. 😢 Please try again.";
+      mintButton.innerText = "Mint Your Special NFT";
       mintButton.disabled = false;
 
       // console.log(e);

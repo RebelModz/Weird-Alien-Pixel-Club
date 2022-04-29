@@ -107,12 +107,12 @@
                         </p>
                         <div id="show" class="stats bg-primary text-primary-content hidden">
                             <div class="stat">
-                              <!-- <div class="stat-title">Total Minted</div> -->
-                              <div id="total-minted" class="stat-value">0/100</div>
-                              <div class="stat-actions">
-                                <button id="hero-btn" class="btn btn-sm btn-success">Mint Here!</button>
-                              </div>
-                            </div>                       
+                                <!-- <div class="stat-title">Total Minted</div> -->
+                                <div id="total-minted" class="stat-value">0/100</div>
+                                <div class="stat-actions">
+                                    <button id="hero-btn" class="btn btn-sm btn-success">Mint Here!</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,8 @@
 
         <section class="text-center">
             <h2 class="py-2 pt-4 text-white text-4xl font-bold">How to mint this NFT?</h2>
-            <p class="py-2 pt-4 text-white text-xl font-medium">Please use desktop to mint, mobile is not supported yet!</p>
+            <p class="py-2 pt-4 text-white text-xl font-medium">Please use desktop to mint, mobile is not supported yet!
+            </p>
             <div class="flex pb-5 items-center justify-center">
                 <ul class="steps steps-vertical">
                     <li class="step step-success">Install MetaMask</li>
@@ -167,100 +168,93 @@
         <label for="my-modal-3" class="btn modal-button">open modal</label>
         <input type="checkbox" id="my-modal-3" class="modal-toggle">
         <div class="modal">
-        <div class="modal-box text-center relative">
-            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <div id="countdown" class="grid grid-flow-col gap-5 pt-6 text-center auto-cols-max items-center justify-center" data-date="">
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
-                        <span style="--value:0;" class="days"></span>
-                    </span>
-                    days
+            <div class="modal-box text-center relative">
+                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <div id="countdown"
+                    class="grid grid-flow-col gap-5 pt-6 text-center auto-cols-max items-center justify-center"
+                    data-date="">
+                    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                        <span class="countdown font-mono text-5xl">
+                            <span style="--value:0;" class="days"></span>
+                        </span>
+                        days
+                    </div>
+                    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                        <span class="countdown font-mono text-5xl">
+                            <span style="--value:0;" class="hours"></span>
+                        </span>
+                        hours
+                    </div>
+                    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                        <span class="countdown font-mono text-5xl">
+                            <span style="--value:0;" class="minutes"></span>
+                        </span>
+                        min
+                    </div>
+                    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                        <span class="countdown font-mono text-5xl">
+                            <span class="seconds" style="--value:0;"></span>
+                        </span>
+                        sec
+                    </div>
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
-                        <span style="--value:0;" class="hours"></span>
-                    </span>
-                    hours
+                <h3 id="subHeading" class="font-bold text-lg pt-5">Pre-Sale Minting Countdown</h3>
+                <h3 id="mainHeading" class="font-bold text-4xl pt-5">NFT Drop Coming Soon...</h3>
+                <p id="mainText" class="py-4">We are working hard to launch the NFT Collection. Stay tuned for updates!
+                </p>
+                <div>
+                    <div id="mintContainer" class="mint-container hidden">
+                        <div class="info-container flex items-center justify-evenly mb-5">
+                            <div>
+                                <h3>Supply</h3>
+                                <p id="totalSupply">100</p>
+                            </div>
+                            <div>
+                                <h3>Price Per Mint</h3>
+                                <p id="pricePerMint">1 ETH</p>
+                            </div>
+                            <div>
+                                <h3>Max</h3>
+                                <p id="maxPerMint">5 per wallet</p>
+                            </div>
+                        </div>
+                        <div class="mint-qty">
+                            <span>
+                                <button class="input-number-decrement btn" id="mintDecrement">–</button>
+                                <input id="mintInput" class="input-number btn" type="number" value="1" min="1"
+                                    max="5" />
+                                <button class="input-number-increment btn" id="mintIncrement">+</button>
+                            </span>
+                            <button id="setQtyMax" class="btn">SET MAX</button>
+                        </div>
+                        <div class="total-price-container my-5">
+                            <h3>Total</h3>
+                            <p id="totalPrice">.001 ETH</p>
+                        </div>
+                        <button id="mintButton" class="hero-btn btn btn-outline btn-success mint-btn">Mint</button>
+                    </div>
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
-                        <span style="--value:0;" class="minutes"></span>
-                    </span>
-                    min
+                <div class="modal-action justify-center">
+                    <a id="actionButton" href="" target="_blank" class="btn btn-outline btn-success discord">
+                        Mint!
+                    </a>
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
-                        <span class="seconds" style="--value:0;"></span>
-                    </span>
-                    sec
-                </div>
-            </div>
-            <h3 id="subHeading" class="font-bold text-lg pt-5">Pre-Sale Minting Countdown</h3>
-            <h3 id="mainHeading" class="font-bold text-4xl pt-5">NFT Drop Coming Soon...</h3>
-            <p id="mainText" class="py-4">We are working hard to launch the NFT Collection. Stay tuned for updates!</p>
-            <div>
-            <div id="mintContainer" class="mint-container hidden">
-                <div class="info-container flex items-center justify-evenly mb-5">
-                  <div>
-                    <h3>Supply</h3>
-                    <p id="totalSupply">100</p>
-                  </div>
-                  <div>
-                    <h3>Price Per Mint</h3>
-                    <p id="pricePerMint">1 ETH</p>
-                  </div>
-                  <div>
-                    <h3>Max</h3>
-                    <p id="maxPerMint">5 per wallet</p>
-                  </div>
-                </div>
-                <div class="mint-qty">
-                  <span>
-                    <button class="input-number-decrement btn" id="mintDecrement">–</button>
-                    <input
-                      id="mintInput"
-                      class="input-number btn"
-                      type="number"
-                      value="1"
-                      min="1"
-                      max="5"
-                    />
-                    <button class="input-number-increment btn" id="mintIncrement">+</button>
-                  </span>
-                  <button id="setQtyMax" class="btn">SET MAX</button>
-                </div>
-                <div class="total-price-container my-5">
-                  <h3>Total</h3>
-                  <p id="totalPrice">.001 ETH</p>
-                </div>
-                <button id="mintButton" class="hero-btn btn btn-outline btn-success mint-btn">Mint</button>
-              </div>
-            </div>
-            <div class="modal-action justify-center">
-                <a id="actionButton" 
-                    href=""
-                    target="_blank"
-                    class="btn btn-outline btn-success discord"
-                >
-                    Mint!
-                </a>
-            </div>
             </div>
         </div>
-        </div>
+    </div>
 
-        <!-- The button to open switch network modal -->
-        <label for="my-modal" class="btn modal-button hidden">open modal</label>
-        <input type="checkbox" id="my-modal" class="modal-toggle">
-        <div class="modal">
-            <div class="modal-box">
-                <h3 class="font-bold text-lg">Message!</h3>
-                <p class="py-4" id="model-text"></p>
-                <div class="modal-action">
-                    <label id="change-chain" for="my-modal" class="btn">Switch Network</label>
-                </div>
+    <!-- The button to open switch network modal -->
+    <label for="my-modal" class="btn modal-button hidden">open modal</label>
+    <input type="checkbox" id="my-modal" class="modal-toggle">
+    <div class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Message!</h3>
+            <p class="py-4" id="model-text"></p>
+            <div class="modal-action">
+                <label id="change-chain" for="my-modal" class="btn">Switch Network</label>
             </div>
         </div>
+    </div>
     </div>
     <script src="js/metamask-onboarding.bundle.js"></script>
     <script src="js/web3.min.js"></script>
