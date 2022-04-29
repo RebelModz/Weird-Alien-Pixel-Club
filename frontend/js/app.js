@@ -332,6 +332,7 @@ async function mint() {
         const mainText = document.getElementById("mainText");
         mainText.innerText = "Minting failed. 😢 Please try again.";
         mintButton.innerText = "Mint Your NFT";
+        mintButton.classList.remove("loading");
         mintButton.disabled = false;
 
         console.log("Failed to mint!");
@@ -340,6 +341,7 @@ async function mint() {
       const mainText = document.getElementById("mainText");
       mainText.innerText = "Minting failed. 😢 Please try again.";
       mintButton.innerText = "Mint Your NFT";
+      mintButton.classList.remove("loading");
       mintButton.disabled = false;
 
       console.log(e);
@@ -369,6 +371,7 @@ async function mint() {
         const mainText = document.getElementById("mainText");
         mainText.innerText = "Minting failed. 😢 Please try again.";
         mintButton.innerText = "Mint Your Special NFT";
+        mintButton.classList.remove("loading");
         mintButton.disabled = false;
 
         console.log("Failed to mint!");
@@ -377,6 +380,7 @@ async function mint() {
       const mainText = document.getElementById("mainText");
       mainText.innerText = "Minting failed. 😢 Please try again.";
       mintButton.innerText = "Mint Your Special NFT";
+      mintButton.classList.remove("loading");
       mintButton.disabled = false;
 
       // console.log(e);
