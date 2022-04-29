@@ -198,6 +198,45 @@
             <h3 id="subHeading" class="font-bold text-lg pt-5">Pre-Sale Minting Countdown</h3>
             <h3 id="mainHeading" class="font-bold text-4xl pt-5">NFT Drop Coming Soon...</h3>
             <p id="mainText" class="py-4">We are working hard to launch the NFT Collection. Stay tuned for updates!</p>
+
+            <div id="mintContainer" class="mint-container hidden">
+                <div class="info-container">
+                  <div>
+                    <h3>Supply</h3>
+                    <p id="totalSupply">100</p>
+                  </div>
+                  <div>
+                    <h3>Price Per Mint</h3>
+                    <p id="pricePerMint">1 ETH</p>
+                  </div>
+                  <div>
+                    <h3>Max</h3>
+                    <p id="maxPerMint">5 per wallet</p>
+                  </div>
+                </div>
+                <div class="mint-qty">
+                  <span>
+                    <button class="input-number-decrement btn" id="mintDecrement">–</button>
+                    <input
+                      id="mintInput"
+                      class="input-number btn"
+                      type="number"
+                      value="1"
+                      min="1"
+                      max="5"
+                    />
+                    <button class="input-number-increment btn" id="mintIncrement">+</button>
+                  </span>
+                  <button id="setQtyMax" class="btn">SET MAX</button>
+                </div>
+                <div class="total-price-container">
+                  <h3>Total</h3>
+                  <p id="totalPrice">.001 ETH</p>
+                </div>
+                <button id="mintButton" class="hero-btn btn mint-btn">Mint</button>
+              </div>
+            </div>
+            
             <div class="modal-action justify-center">
                 <a id="actionButton" 
                     href=""
