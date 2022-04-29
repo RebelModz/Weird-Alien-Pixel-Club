@@ -200,8 +200,8 @@ async function loadInfo() {
       }
     } catch(e) {
       // console.log(e);
-      mainText.innerText = p_presale_mint_already_minted;
-      actionButton.innerText = button_presale_already_minted;
+      mainText.innerText = "You've already claimed your whitelist mint. Thank you! 🎉";
+      actionButton.innerText = "Join The Community";
     }
     setTotalPrice();
   } else {
