@@ -171,10 +171,10 @@ async function loadInfo() {
 
   let startTime = "";
   if (publicMintActive) {
-    mainHeading.innerText = h1_public_mint;
-    mainText.innerText = p_public_mint;
+    mainHeading.innerText = "Public Minting Open!!";
+    mainText.innerText = "No whitelist needed. Public minting is now open! 🎉";
     actionButton.classList.add('hidden');
-    mintButton.innerText = button_public_mint;
+    mintButton.innerText = "Mint Your NFT";
     mintContainer.classList.remove('hidden');
     setTotalPrice();
   } else if (presaleMintActive) {
@@ -218,10 +218,10 @@ async function loadInfo() {
 
 
   // SHOW CARD
-  setTimeout(() => {
-    const countdownCard = document.querySelector('.countdown');
-    countdownCard.classList.add('show-card');
-  }, 1000);
+  // setTimeout(() => {
+  //   const countdownCard = document.querySelector('.countdown');
+  //   countdownCard.classList.add('show-card');
+  // }, 1000);
 
   let priceType = '';
   if(chain === 'rinkeby') {
