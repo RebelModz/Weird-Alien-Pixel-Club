@@ -158,7 +158,7 @@ async function loadInfo() {
   const showMinted = document.getElementById("total-minted");
   showMinted.innerText = `${totalMinted}/${max_supply} minted`;
   document.getElementById("show").classList.remove("hidden");
-  
+
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
 
@@ -179,8 +179,8 @@ async function loadInfo() {
     setTotalPrice();
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
-    mainHeading.innerText = h1_presale_mint;
-    subHeading.innerText = h2_presale_mint;
+    mainHeading.innerText = "NFT Drop Coming Soon... 1";
+    subHeading.innerText = "Pre-Sale Minting Countdown";
     
     try {
       // CHECK IF WHITELISTED
