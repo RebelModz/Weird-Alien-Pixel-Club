@@ -172,7 +172,7 @@ async function loadInfo() {
   let startTime = "";
   if (publicMintActive) {
     mainHeading.innerText = "Public Minting Open!!";
-    subHeading.innerText = "";
+    subHeading.classList.add("hidden");
     mainText.innerText = "No whitelist needed. Public minting is now open! 🎉";
     actionButton.classList.add('hidden');
     mintButton.innerText = "Mint Your NFT";
