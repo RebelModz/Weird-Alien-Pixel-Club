@@ -206,10 +206,10 @@ async function loadInfo() {
     setTotalPrice();
   } else {
     startTime = window.info.runtimeConfig.presaleMintStart;
-    mainHeading.innerText = h1_presale_coming_soon;
-    subHeading.innerText = h2_presale_coming_soon;
-    mainText.innerText = p_presale_coming_soon;
-    actionButton.innerText = button_presale_coming_soon;
+    mainHeading.innerText = "NFT Drop Coming Soon...";
+    subHeading.innerText = "Pre-Sale Minting Countdown";
+    mainText.innerText = "We are working hard to launch the NFT Collection. Stay tuned for updates!";
+    actionButton.innerText = "Get on the Whitelist!";
   }
 
   const clockdiv = document.getElementById("countdown");
