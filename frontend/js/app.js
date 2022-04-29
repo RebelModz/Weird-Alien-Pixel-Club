@@ -203,7 +203,7 @@ async function loadInfo() {
       mainText.innerText = "You've already claimed your whitelist mint. Thank you! 🎉";
       actionButton.innerText = "Join The Community";
     }
-    // setTotalPrice();
+    setTotalPrice();
   } else {
     startTime = window.info.runtimeConfig.presaleMintStart;
     mainHeading.innerText = "NFT Drop Coming Soon...";
