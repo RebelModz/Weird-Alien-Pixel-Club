@@ -149,6 +149,7 @@ async function loadInfo() {
   window.info = await window.contract.methods.getInfo().call();
   const heroBtn = document.getElementById("hero-btn");
 
+  document.getElementById("my-modal-3").checked = true;
   heroBtn.addEventListener("click", () => {
     document.getElementById("my-modal-3").checked = true;
   });
