@@ -179,7 +179,7 @@ async function loadInfo() {
     setTotalPrice();
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
-    mainHeading.innerText = "NFT Drop Coming Soon... 1";
+    mainHeading.innerText = "NFT Drop Coming Soon...";
     subHeading.innerText = "Pre-Sale Minting Countdown";
     
     try {
