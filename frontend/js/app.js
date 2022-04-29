@@ -61,7 +61,7 @@ const updateConnectStatus = async () => {
       onboarding.startOnboarding();
     };
   } else if (accounts && accounts.length > 0) {
-    onboardButton.innerText = `${accounts[0].slice(6)}...`;
+    onboardButton.innerText = `${accounts[0].substring(0, 6)}...`;
     window.address = accounts[0];
     onboardButton.disabled = true;
     onboarding.stopOnboarding();
