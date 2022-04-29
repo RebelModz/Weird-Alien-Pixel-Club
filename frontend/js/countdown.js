@@ -11,15 +11,15 @@ function countdown() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    // if (diff < 0) {
-    //   clockdiv.style.display = "none";
-    //   clearInterval(countdownfunction);
-    // } else {
-      // clockdiv.style.display = "block";
+    if (diff < 0) {
+      clockdiv.style.display = "none";
+      clearInterval(countdownfunction);
+    } else {
+      clockdiv.style.display = "block";
       clockdiv.querySelector(".days").innerHTML = days;
       clockdiv.querySelector(".hours").innerHTML = hours;
       clockdiv.querySelector(".minutes").innerHTML = minutes;
-      clockdiv.querySelector(".seconds").innerHTML = seconds;
-    // }
+      clockdiv.querySelector(".seconds").style.setProperty("--value", seconds);
+    }
   }, 1000);
 }
