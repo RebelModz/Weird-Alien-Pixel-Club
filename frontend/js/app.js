@@ -179,8 +179,8 @@ async function loadInfo() {
     setTotalPrice();
   } else if (presaleMintActive) {
     startTime = window.info.runtimeConfig.publicMintStart;
-    mainHeading.innerText = "NFT Drop Coming Soon...";
-    subHeading.innerText = "Pre-Sale Minting Countdown";
+    mainHeading.innerText = "Pre-Sale Minting Open!";
+    subHeading.innerText = "Public Minting Countdown";
     
     try {
       // CHECK IF WHITELISTED
@@ -191,7 +191,7 @@ async function loadInfo() {
       const whitelisted = await contract.methods.isWhitelisted(window.address, merkleJson).call();
       if(!whitelisted) {
         mainText.innerText = "You are not whitelisted for the pre-sale.. 😢";
-        actionButton.innerText = "Get on the Whitelist";
+        actionButton.innerText = "Get on the Whitelist!";
       } else {
         mainText.innerText = p_presale_mint_whitelisted;
         actionButton.classList.add('hidden');
