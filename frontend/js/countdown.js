@@ -12,13 +12,13 @@ function countdown() {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     if (diff < 0) {
-      clockdiv.style.display = "none";
+      clockdiv.classList.add("hidden");
       clearInterval(countdownfunction);
     } else {
-      clockdiv.style.display = "block";
-      clockdiv.querySelector(".days").innerHTML = days;
-      clockdiv.querySelector(".hours").innerHTML = hours;
-      clockdiv.querySelector(".minutes").innerHTML = minutes;
+      clockdiv.classList.remove("hidden");
+      clockdiv.querySelector(".days").style.setProperty("--value", days);;
+      clockdiv.querySelector(".hours").style.setProperty("--value", hours);
+      clockdiv.querySelector(".minutes").style.setProperty("--value", minutes);
       clockdiv.querySelector(".seconds").style.setProperty("--value", seconds);
     }
   }, 1000);
