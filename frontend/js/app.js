@@ -150,8 +150,6 @@ async function loadInfo() {
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
 
-  document.getElementById("show").classList.remove("hidden");
-
   const heroBtn = document.getElementById("hero-btn");
 
   heroBtn.addEventListener("click", () => {
@@ -161,8 +159,8 @@ async function loadInfo() {
   const totalMinted = await contract.methods.totalSupply().call();
   const max_supply = info.deploymentConfig.maxSupply;
   const showMinted = document.getElementById("total-minted");
-  // showMinted.classList.remove("hidden");
   showMinted.innerText = `${totalMinted}/${max_supply} minted`;
+  document.getElementById("show").classList.remove("hidden");
 
   const mainHeading = document.getElementById("mainHeading");
   const subHeading = document.getElementById("subHeading");
