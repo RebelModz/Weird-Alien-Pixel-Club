@@ -147,9 +147,6 @@ async function switchChain(chainId) {
 
 async function loadInfo() {
   window.info = await window.contract.methods.getInfo().call();
-  const publicMintActive = await contract.methods.mintingActive().call();
-  const presaleMintActive = await contract.methods.presaleActive().call();
-
   const heroBtn = document.getElementById("hero-btn");
 
   heroBtn.addEventListener("click", () => {
@@ -161,6 +158,9 @@ async function loadInfo() {
   const showMinted = document.getElementById("total-minted");
   showMinted.innerText = `${totalMinted}/${max_supply} minted`;
   document.getElementById("show").classList.remove("hidden");
+  
+  const publicMintActive = await contract.methods.mintingActive().call();
+  const presaleMintActive = await contract.methods.presaleActive().call();
 
   const mainHeading = document.getElementById("mainHeading");
   const subHeading = document.getElementById("subHeading");
