@@ -311,6 +311,9 @@ async function mint() {
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
 
+  const mintModle = document.getElementById("my-modal-3");
+  const mintedModle = document.getElementById("my-modal-6");
+
   if (publicMintActive) {
     // PUBLIC MINT
     try {
@@ -320,12 +323,14 @@ async function mint() {
       if(mintTransaction) {
         if(chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
-          const mintedContainer = document.querySelector('.minted-container');
-          const countdownContainer = document.querySelector('.countdown');
+          // const mintedContainer = document.querySelector('.minted-container');
+          // const countdownContainer = document.querySelector('.countdown');
+          mintModle.checked = false;
+          mintedModle.checked = true;
           const mintedTxnBtn = document.getElementById("mintedTxnBtn");
           mintedTxnBtn.href = url;
-          countdownContainer.classList.add('hidden');
-          mintedContainer.classList.remove('hidden');
+          // countdownContainer.classList.add('hidden');
+          // mintedContainer.classList.remove('hidden');
         }
         console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
@@ -360,11 +365,13 @@ async function mint() {
         if(chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${presaleMintTransaction.transactionHash}`;
           const mintedContainer = document.querySelector('.minted-container');
-          const countdownContainer = document.querySelector('.countdown');
-          const mintedTxnBtn = document.getElementById("mintedTxnBtn");
+          // const countdownContainer = document.querySelector('.countdown');
+          // const mintedTxnBtn = document.getElementById("mintedTxnBtn");
           mintedTxnBtn.href = url;
-          countdownContainer.classList.add('hidden');
-          mintedContainer.classList.remove('hidden');
+          mintModle.checked = false;
+          mintedModle.checked = true;
+          // countdownContainer.classList.add('hidden');
+          // mintedContainer.classList.remove('hidden');
         }
         console.log("Minuted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
       } else {
