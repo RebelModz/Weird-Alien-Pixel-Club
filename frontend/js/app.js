@@ -89,7 +89,7 @@ const updateConnectStatus = async () => {
           method: "eth_requestAccounts",
         })
         .then(function (accts) {
-          onboardButton.innerText = `✔ ...${accts[0].slice(-4)}`;
+          onboardButton.innerText = `${accts[0].substring(0, 6)}...`;
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
