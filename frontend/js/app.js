@@ -324,14 +324,10 @@ async function mint() {
       if(mintTransaction) {
         if(chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
-          // const mintedContainer = document.querySelector('.minted-container');
-          // const countdownContainer = document.querySelector('.countdown');
           mintModle.checked = false;
           mintedModle.checked = true;
           const mintedTxnBtn = document.getElementById("mintedTxnBtn");
           mintedTxnBtn.href = url;
-          // countdownContainer.classList.add('hidden');
-          // mintedContainer.classList.remove('hidden');
         }
         console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
@@ -365,14 +361,9 @@ async function mint() {
       if(presaleMintTransaction) {
         if(chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${presaleMintTransaction.transactionHash}`;
-          const mintedContainer = document.querySelector('.minted-container');
-          // const countdownContainer = document.querySelector('.countdown');
-          // const mintedTxnBtn = document.getElementById("mintedTxnBtn");
           mintedTxnBtn.href = url;
           mintModle.checked = false;
           mintedModle.checked = true;
-          // countdownContainer.classList.add('hidden');
-          // mintedContainer.classList.remove('hidden');
         }
         console.log("Minuted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
       } else {
