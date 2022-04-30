@@ -65,13 +65,13 @@ const updateConnectStatus = async () => {
     onboardButton.innerText = "Install MetaMask!";
     if (isNotSupportedDevice()) {
       onboardButton.onclick = () => {
-        onboardButton.innerText = "Connecting...";
-        onboardButton.disabled = true;
-        onboarding.startOnboarding();
+        notSupported.checked = true;
       };
     } else {
       onboardButton.onclick = () => {
-        notSupported.checked = true;
+        onboardButton.innerText = "Connecting...";
+        onboardButton.disabled = true;
+        onboarding.startOnboarding();
       };
     }
   } else if (accounts && accounts.length > 0) {
