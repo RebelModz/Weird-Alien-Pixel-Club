@@ -304,6 +304,7 @@ function setTotalPrice() {
 async function mint() {
   const mintButton = document.getElementById("mintButton");
   mintButton.disabled = true;
+  mintButton.innerText = "Minting...";
   mintButton.classList.add("loading");
 
   const amount = parseInt(document.getElementById("mintInput").value);
