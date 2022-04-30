@@ -48,18 +48,32 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
   });
 }
 
+const isNotSupportedDevice = () => {
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    return true;
+  }
+  return false;
+}
+
 const updateConnectStatus = async () => {
 
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById("connectWallet");
+  const notSupported = document.getElementById("my-modal-8");
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
-    onboardButton.onclick = () => {
-      onboardButton.innerText = "Connecting...";
-      onboardButton.disabled = true;
-      onboarding.startOnboarding();
-    };
+    if (isNotSupportedDevice()) {
+      onboardButton.onclick = () => {
+        onboardButton.innerText = "Connecting...";
+        onboardButton.disabled = true;
+        onboarding.startOnboarding();
+      };
+    } else {
+      onboardButton.onclick = () => {
+        notSupported.checked = true;
+      };
+    }
   } else if (accounts && accounts.length > 0) {
     onboardButton.innerText = `${accounts[0].substring(0, 6)}...`;
     window.address = accounts[0];
