@@ -7,8 +7,9 @@ window.addEventListener("load", async () => {
   const discord = document.querySelectorAll(".discord");
   const twitter = document.querySelectorAll(".twitter");
   const instagram = document.querySelectorAll(".instagram");
+  const metamask = document.querySelectorAll(".metamask-link");
 
-  updateSocialMediaLinks(opensea, discord, twitter, instagram);
+  updateSocialMediaLinks(opensea, discord, twitter, instagram, metamask);
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
@@ -33,7 +34,7 @@ window.addEventListener("load", async () => {
   }
 });
 
-const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
+const updateSocialMediaLinks = (opensea, discord, twitter, instagram, metamask) => {
   opensea.forEach((link) => {
     link.href = socialMediaLinks.opensea;
   });
@@ -45,6 +46,10 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram) => {
   });
   instagram.forEach((link) => {
     link.href = socialMediaLinks.instagram;
+  });
+  // MetaMask download Link
+  metamask.forEach((link) => {
+    link.href = metamask_download_link;
   });
 }
 
