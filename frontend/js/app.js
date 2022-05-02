@@ -53,6 +53,16 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram, metamask) 
   });
 }
 
+const showToast = (message) => {
+  Toastify({
+    text: message,
+    className: "info",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    }
+  }).showToast();
+}
+
 const isMobileDevice = () => {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     return true;
@@ -126,6 +136,7 @@ async function switchChain(chainId) {
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: web3.utils.toHex(chainId) }],
     });
+    showToast("Network switched successfully")
     updateConnectStatus();
   } catch (err) {
     // This error code indicates that the chain has not been added to MetaMask.
