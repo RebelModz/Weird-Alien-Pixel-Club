@@ -3,7 +3,7 @@ const chain = 'polygon'; // rinkeby or polygon
 
 const socialMediaLinks = {
   opensea: "https://www.opensea.io",
-  discord: "https://www.discord.com",
+  discord: "https://discord.gg/cc3ySUzhaZ",
   twitter: "https://www.twitter.com",
   instagram: "https://www.instagram.com",
 }
