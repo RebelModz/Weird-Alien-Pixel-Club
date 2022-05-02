@@ -14,7 +14,6 @@ window.addEventListener("load", async () => {
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
     setTimeout(() => checkChain(), 1000);
-    
   } else if (window.web3) {
     window.web3 = new Web3(window.web3.currentProvider);
   }
@@ -55,7 +54,7 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram, metamask) 
 }
 
 const isNotSupportedDevice = () => {
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     return true;
   }
   return false;
@@ -108,9 +107,9 @@ const updateConnectStatus = async () => {
 
 function checkChain() {
   let chainId = 0;
-  if(chain === 'rinkeby') {
+  if (chain === 'rinkeby') {
     chainId = 4;
-  } else if(chain === 'polygon') {
+  } else if (chain === 'polygon') {
     chainId = 137;
   }
   if (window.ethereum.networkVersion !== chainId.toString()) {
@@ -129,10 +128,10 @@ async function switchChain(chainId) {
     });
     updateConnectStatus();
   } catch (err) {
-      // This error code indicates that the chain has not been added to MetaMask.
+    // This error code indicates that the chain has not been added to MetaMask.
     if (err.code === 4902) {
       try {
-        if(chain === 'rinkeby') {
+        if (chain === 'rinkeby') {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [
@@ -144,7 +143,7 @@ async function switchChain(chainId) {
               },
             ],
           });
-        } else if(chain === 'polygon') {
+        } else if (chain === 'polygon') {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [
@@ -202,7 +201,7 @@ async function loadInfo() {
     startTime = window.info.runtimeConfig.publicMintStart;
     mainHeading.innerText = "Pre-Sale Minting Open!";
     subHeading.innerText = "Public Minting Countdown";
-    
+
     try {
       // CHECK IF WHITELISTED
       const merkleData = await fetch(
@@ -210,7 +209,7 @@ async function loadInfo() {
       );
       const merkleJson = await merkleData.json();
       const whitelisted = await contract.methods.isWhitelisted(window.address, merkleJson).call();
-      if(!whitelisted) {
+      if (!whitelisted) {
         mainText.innerText = "You are not whitelisted for the pre-sale.. 😢";
         actionButton.innerText = "Get on the Whitelist!";
       } else {
@@ -219,7 +218,7 @@ async function loadInfo() {
         mintButton.innerText = button_presale_mint_whitelisted;
         mintContainer.classList.remove('hidden');
       }
-    } catch(e) {
+    } catch (e) {
       // console.log(e);
       mainText.innerText = "You've already claimed your whitelist mint. Thank you! 🎉";
       actionButton.innerText = "Join The Community";
@@ -245,7 +244,7 @@ async function loadInfo() {
   // }, 1000);
 
   let priceType = '';
-  if(chain === 'rinkeby') {
+  if (chain === 'rinkeby') {
     priceType = 'ETH';
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
@@ -255,7 +254,7 @@ async function loadInfo() {
   const maxPerMint = document.getElementById("maxPerMint");
   const totalSupply = document.getElementById("totalSupply");
   const mintInput = document.getElementById("mintInput");
-  
+
   pricePerMint.innerText = `${price} ${priceType}`;
   maxPerMint.innerText = `${info.deploymentConfig.tokensPerMint}`;
   totalSupply.innerText = `${info.deploymentConfig.maxSupply}`;
@@ -269,14 +268,14 @@ async function loadInfo() {
   const max = mintInput.attributes.max.value || false;
   mintDecrement.onclick = () => {
     let value = parseInt(mintInput.value) - 1 || 1;
-    if(!min || value >= min) {
+    if (!min || value >= min) {
       mintInput.value = value;
       setTotalPrice()
     }
   };
   mintIncrement.onclick = () => {
     let value = parseInt(mintInput.value) + 1 || 1;
-    if(!max || value <= max) {
+    if (!max || value <= max) {
       mintInput.value = value;
       setTotalPrice()
     }
@@ -301,16 +300,16 @@ function setTotalPrice() {
   const mintInputValue = parseInt(mintInput.value);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
-  if(mintInputValue < 1 || mintInputValue > info.deploymentConfig.tokensPerMint) {
+  if (mintInputValue < 1 || mintInputValue > info.deploymentConfig.tokensPerMint) {
     totalPrice.innerText = 'INVALID QUANTITY';
     mintButton.disabled = true;
     mintInput.disabled = true;
     return;
   }
   const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue);
-  
+
   let priceType = '';
-  if(chain === 'rinkeby') {
+  if (chain === 'rinkeby') {
     priceType = 'ETH';
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
@@ -341,8 +340,8 @@ async function mint() {
       const mintTransaction = await contract.methods
         .mint(amount)
         .send({ from: window.address, value: value.toString() });
-      if(mintTransaction) {
-        if(chain === 'rinkeby') {
+      if (mintTransaction) {
+        if (chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
           mintModle.checked = false;
           mintedModle.checked = true;
@@ -359,7 +358,7 @@ async function mint() {
 
         console.log("Failed to mint!");
       }
-    } catch(e) {
+    } catch (e) {
       const mainText = document.getElementById("mainText");
       mainText.innerText = "Minting failed. 😢 Please try again.";
       mintButton.innerText = "Mint Your NFT";
@@ -378,8 +377,8 @@ async function mint() {
       const presaleMintTransaction = await contract.methods
         .presaleMint(amount, merkleJson)
         .send({ from: window.address, value: value.toString() });
-      if(presaleMintTransaction) {
-        if(chain === 'rinkeby') {
+      if (presaleMintTransaction) {
+        if (chain === 'rinkeby') {
           const url = `https://rinkeby.etherscan.io/tx/${presaleMintTransaction.transactionHash}`;
           mintedTxnBtn.href = url;
           mintModle.checked = false;
@@ -395,7 +394,7 @@ async function mint() {
 
         console.log("Failed to mint!");
       }
-    } catch(e) {
+    } catch (e) {
       const mainText = document.getElementById("mainText");
       mainText.innerText = "Minting failed. 😢 Please try again.";
       mintButton.innerText = "Mint Your Special NFT";
