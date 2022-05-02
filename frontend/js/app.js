@@ -13,7 +13,7 @@ window.addEventListener("load", async () => {
 
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
-    setTimeout(() => checkChain(), 1000);
+    setTimeout(checkChain, 1000);
   } else if (window.web3) {
     window.web3 = new Web3(window.web3.currentProvider);
   }
@@ -53,7 +53,7 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram, metamask) 
   });
 }
 
-const isNotSupportedDevice = () => {
+const isMobileDevice = () => {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     return true;
   }
@@ -68,7 +68,7 @@ const updateConnectStatus = async () => {
 
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     onboardButton.innerText = "Install MetaMask!";
-    if (isNotSupportedDevice()) {
+    if (isMobileDevice()) {
       onboardButton.onclick = () => {
         notSupported.checked = true;
       };
