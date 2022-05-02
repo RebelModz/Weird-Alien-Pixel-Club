@@ -52,7 +52,7 @@ const CONTRACT_SYMBOL = 'WAPC';
 const METADATA_UPDATABLE = true; // set to false if you don't want to allow metadata updates after minting
 const OWNER_ADDRESS = '0x41feB2D9065cBFaC8f9d9b55FE9f38B59164678d';
 const TREASURY_ADDRESS = '0x41feB2D9065cBFaC8f9d9b55FE9f38B59164678d';
-const MAX_SUPPLY = 5000; // The maximum number of NFTs that can be minted. CANNOT BE UPDATED!
+const MAX_SUPPLY = 1111; // The maximum number of NFTs that can be minted. CANNOT BE UPDATED!
 const MINT_PRICE = 0.001; // Minting price per NFT. Rinkeby = ETH, Polygon = MATIC. CANNOT BE UPDATED!
 const TOKENS_PER_MINT = 10; // maximum number of NFTs a user can mint in a single transaction. CANNOT BE UPDATED!
 
