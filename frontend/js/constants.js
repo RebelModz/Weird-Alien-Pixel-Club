@@ -2,9 +2,9 @@ const contractAddress = "0x15e13d778E3d67E65cAEfa4E32d6Af7430de8eEF"; //Replace 
 const chain = 'polygon'; // rinkeby or polygon
 
 const socialMediaLinks = {
-  opensea: "https://www.opensea.io",
+  opensea: "https://opensea.io/collection/weird-alien-pixel-club",
   discord: "https://discord.gg/cc3ySUzhaZ",
-  twitter: "https://www.twitter.com",
+  twitter: "https://twitter.com/rebelofficialn1",
   instagram: "https://www.instagram.com",
 }
 
