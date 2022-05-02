@@ -57,8 +57,6 @@ const showToast = (message) => {
   Toastify({
     text: "This is a toast",
     duration: 3000,
-    destination: "https://github.com/apvarun/toastify-js",
-    newWindow: true,
     close: true,
     gravity: "top", // `top` or `bottom`
     position: "left", // `left`, `center` or `right`
