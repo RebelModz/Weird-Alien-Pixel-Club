@@ -8,6 +8,8 @@ const socialMediaLinks = {
   instagram: "https://www.instagram.com",
 }
 
+const metamask_download_link = "https://metamask.io/download/";
+
 // const welcome_h1 = "Welcome to the CodeCats NFT Project!!";
 // const welcome_h2 = "Connect to MetaMask to Get Started";
 // const welcome_p = 'The CodeCats NFT Project is a decentralized, open-source project that aims to demonstrate how to develope and launch your own NFT Collection. Follow step by step on the <a href="https://youtube.com/codestackr"  target="_blank" rel="noopener noreferrer">codeSTACKr</a> YouTube channel.';
