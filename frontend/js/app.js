@@ -363,6 +363,7 @@ async function mint() {
           const mintedTxnBtn = document.getElementById("mintedTxnBtn");
           mintedTxnBtn.href = url;
         }
+        showToast("Minted successfully!");
         console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
@@ -390,7 +391,7 @@ async function mint() {
       );
       const merkleJson = await merkleData.json();
       const presaleMintTransaction = await contract.methods
-        .presaleMint(amount, merkleJson)
+        .presaleMint(amount + amount, merkleJson)
         .send({ from: window.address, value: value.toString() });
       if (presaleMintTransaction) {
         if (chain === 'rinkeby') {
@@ -399,6 +400,7 @@ async function mint() {
           mintModle.checked = false;
           mintedModle.checked = true;
         }
+        showToast("Minted successfully!");
         console.log("Minuted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");

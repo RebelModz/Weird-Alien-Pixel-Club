@@ -1,5 +1,5 @@
-const contractAddress = "0x0646D9d5C6658ebB825eD871ED5b6F538f5624AA"; //Replace with your own contract address
-const chain = 'rinkeby'; // rinkeby or polygon
+const contractAddress = "0x15e13d778E3d67E65cAEfa4E32d6Af7430de8eEF"; //Replace with your own contract address
+const chain = 'polygon'; // rinkeby or polygon
 
 const socialMediaLinks = {
   opensea: "https://www.opensea.io",
