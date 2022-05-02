@@ -55,7 +55,7 @@ const updateSocialMediaLinks = (opensea, discord, twitter, instagram, metamask) 
 
 const showToast = (message) => {
   Toastify({
-    text: "This is a toast",
+    text: message,
     duration: 3000,
     close: true,
     gravity: "top", // `top` or `bottom`
