@@ -140,7 +140,7 @@ async function switchChain(chainId) {
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: web3.utils.toHex(chainId) }],
     });
-    showToast("Network switched successfully")
+    showToast("Network switched successfully");
     updateConnectStatus();
   } catch (err) {
     // This error code indicates that the chain has not been added to MetaMask.
