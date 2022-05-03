@@ -5,7 +5,7 @@ const socialMediaLinks = {
   opensea: "https://opensea.io/collection/weird-alien-pixel-club",
   discord: "https://discord.gg/cc3ySUzhaZ",
   twitter: "https://twitter.com/rebelofficialn1",
-  instagram: "https://www.instagram.com",
+  instagram: "https://www.instagram.com/rebel_official_nft/",
 }
 
 const metamask_download_link = "https://metamask.io/download/";
