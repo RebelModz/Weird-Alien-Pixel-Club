@@ -251,13 +251,6 @@ async function loadInfo() {
   clockdiv.setAttribute("data-date", startTime);
   countdown();
 
-
-  // SHOW CARD
-  // setTimeout(() => {
-  //   const countdownCard = document.querySelector('.countdown');
-  //   countdownCard.classList.add('show-card');
-  // }, 1000);
-
   let priceType = '';
   if (chain === 'rinkeby') {
     priceType = 'ETH';
