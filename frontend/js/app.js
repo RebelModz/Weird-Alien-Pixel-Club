@@ -228,9 +228,9 @@ async function loadInfo() {
         mainText.innerText = "You are not whitelisted for the pre-sale.. 😢";
         actionButton.innerText = "Get on the Whitelist!";
       } else {
-        mainText.innerText = p_presale_mint_whitelisted;
+        mainText.innerText = "You're on the whitelist for the pre-sale! 🎉";
         actionButton.classList.add('hidden');
-        mintButton.innerText = button_presale_mint_whitelisted;
+        mintButton.innerText = "Mint Your Special NFT";
         mintContainer.classList.remove('hidden');
       }
     } catch (e) {
